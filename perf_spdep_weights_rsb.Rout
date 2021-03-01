@@ -1,0 +1,58 @@
+
+> library(spdep)
+
+> options(digits.secs = 6)
+
+> Run_wts <- function(file_path) {
++   dt <- st_read(file_path)
++   cat("weights creation", file_path, "\n")
++   tm0 <-system.time(w <- CreateWeights( .... [TRUNCATED] 
+
+> CreateWeights <- function(file_path, dt){
++   if (file_path=='./data/Chicago_parcels_points.shp') {
++ #    coords <- st_centroid(st_geometry(dt))
++  .... [TRUNCATED] 
+
+> Run_wts('./data/Chicago_parcels_points.shp')
+Reading layer `Chicago_parcels_points' from data source `/home/rsb/papers/ga21/pdfs/data/libgeoda_paper/data/Chicago_parcels_points.shp' using driver `ESRI Shapefile'
+Simple feature collection with 321701 features and 6 fields
+geometry type:  POINT
+dimension:      XY
+bbox:           xmin: -88.26351 ymin: 41.46987 xmax: -87.52488 ymax: 42.15398
+geographic CRS: WGS 84
+weights creation ./data/Chicago_parcels_points.shp 
+   user  system elapsed 
+ 19.891   0.058  20.104 
+
+> Run_wts('./data/natregimes.shp')
+Reading layer `natregimes' from data source `/home/rsb/papers/ga21/pdfs/data/libgeoda_paper/data/natregimes.shp' using driver `ESRI Shapefile'
+Simple feature collection with 3085 features and 73 fields
+geometry type:  MULTIPOLYGON
+dimension:      XY
+bbox:           xmin: -124.7314 ymin: 24.95597 xmax: -66.96985 ymax: 49.37173
+geographic CRS: WGS 84
+weights creation ./data/natregimes.shp 
+   user  system elapsed 
+  0.920   0.000   0.935 
+
+> Run_wts('./data/NYC_Area2010_2data.shp')
+Reading layer `NYC_Area2010_2data' from data source `/home/rsb/papers/ga21/pdfs/data/libgeoda_paper/data/NYC_Area2010_2data.shp' using driver `ESRI Shapefile'
+Simple feature collection with 108487 features and 8 fields
+geometry type:  MULTIPOLYGON
+dimension:      XY
+bbox:           xmin: 1796733 ymin: 544070.8 xmax: 1991063 ymax: 677021.4
+projected CRS:  USA_Contiguous_Albers_Equal_Area_Conic
+weights creation ./data/NYC_Area2010_2data.shp 
+   user  system elapsed 
+ 32.968   0.111  33.631 
+
+> Run_wts('./data/us-sdoh-2014.shp')
+Reading layer `us-sdoh-2014' from data source `/home/rsb/papers/ga21/pdfs/data/libgeoda_paper/data/us-sdoh-2014.shp' using driver `ESRI Shapefile'
+Simple feature collection with 71901 features and 25 fields
+geometry type:  MULTIPOLYGON
+dimension:      XY
+bbox:           xmin: -124.7625 ymin: 24.5231 xmax: -66.94989 ymax: 49.38436
+geographic CRS: WGS 84
+weights creation ./data/us-sdoh-2014.shp 
+   user  system elapsed 
+ 27.283   0.151  27.578 
